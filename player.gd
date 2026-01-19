@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var acceleration := 700.0
 @export var deceleration := 1400.0
 @export var max_speed := 120.0
-
+@export var jump_gravity := 1200.0
 
 func _physics_process(delta: float) -> void:
 	var direction_x := signf(Input.get_axis("move_left","move_right"))
@@ -15,4 +15,6 @@ func _physics_process(delta: float) -> void:
 	else: 
 		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
 		
+		
+	velocity.y += jump_gravity * delta
 	move_and_slide()
