@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsit12vy75nu1"]
+
+[ext_resource type="Script" uid="uid://do4kswhi8cjbw" path="res://platform(for_now).gd" id="1_coswu"]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D"]
+script = ExtResource("1_coswu")

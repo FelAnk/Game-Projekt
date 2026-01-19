@@ -1,7 +1,13 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1768809425
+::res://::1768814542
+ground_platform.png::CompressedTexture2D::1279176767074612049::1768814527::1768814527::1::::<><><>0<>0<>542b3aa16b86803e2838391109972e41<>res://.godot/imported/ground_platform.png-ddbab2ac008246987f72f1d33f27d1c0.ctex::
 icon.svg::CompressedTexture2D/CompressedTexture2D::2790878262804397063::1768204079::1768210572::1::::<><><>0<>0<>9e417a74eff28d617c70c243b3f48471<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 node_2d.tscn::PackedScene/PackedScene::513837472255302140::1768210427::0::1::::<><><>0<>0<><>::uid://cqgro1wepw0em::::res://player.tscn
+placeholder platform,m.webp::CompressedTexture2D::6712710308595628811::1768812179::1768812179::1::::<><><>0<>0<>6a57a908cb9ccc70a7f3eda5a61d4cf8<>res://.godot/imported/placeholder platform,m.webp-81c4709640dfd95f30db7c07bb05771c.ctex::
 placeholderrrr.webp::CompressedTexture2D/CompressedTexture2D::2993161663543556257::1768207874::1768210572::1::::<><><>0<>0<>adb0f1926ebd930d4b058c64fc2759bb<>res://.godot/imported/placeholderrrr.webp-ce1bca5bacefd50d314cc4a068a4a0e9.ctex::
-player.gd::GDScript/GDScript::1125558961427169889::1768210144::0::1::::<>CharacterBody2D<><>0<>0<><>::
-player.tscn::PackedScene/PackedScene::5909307721906258712::1768210170::0::1::::<><><>0<>0<><>::uid://biv562gyule1f::::res://placeholderrrr.webp<>uid://qbh16e7mqy7b::::res://player.gd
+player.gd::GDScript::1125558961427169889::1768811278::0::1::::<>CharacterBody2D<><>0<>0<><>::
+player.tscn::PackedScene::5909307721906258712::1768812356::0::1::::<><><>0<>0<><>::uid://biv562gyule1f::::res://placeholderrrr.webp<>uid://qbh16e7mqy7b::::res://player.gd
+level.tscn::PackedScene::2209957001594844776::1768812356::0::1::::<><><>0<>0<><>::uid://cqgro1wepw0em::::res://player.tscn<>uid://dsit12vy75nu1::::res://platform(for now).tscn
+platform(for now).tscn::PackedScene::8440377763806208806::1768812356::0::1::::<><><>0<>0<><>::uid://c2vxmf5sgb2hj::::res://placeholder platform,m.webp
+platform(for_now).gd::GDScript::8202413297832448444::1768814410::0::1::::<>AnimatableBody2D<><>0<>0<><>::
+yellow_platform.png::CompressedTexture2D::8496704603787956118::1768814542::1768814542::1::::<><><>0<>0<>a1b476dbb56879c26c4ab5ad12e12cb2<>res://.godot/imported/yellow_platform.png-55c65a8926e658d79e48a8848bae3a72.ctex::
