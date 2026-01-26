@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var acceleration := 700.0
-@export var deceleration := 1400.0
-@export var max_speed := 120.0
+@export var acceleration := 1000.0
+@export var deceleration := 2000.0
+@export var max_speed := 1200.0
 @export var jump_gravity := 1200.0
 
 func _physics_process(delta: float) -> void:

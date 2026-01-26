@@ -6,6 +6,7 @@ enum PlatformColor {
 	GROUND,
 	YELLOW
 }
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 const PLATFORM_TEXTURES = {
 	PlatformColor.GROUND: preload("res://ground_platform.png"),
@@ -22,7 +23,6 @@ const PLATFORM_TEXTURES = {
 ## This property lets you pick the color palette used by the platform.
 @export var color: PlatformColor = PlatformColor.GROUND: set = set_color
 
-@onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
 @onready var shape: RectangleShape2D = collision_shape_2d.shape
 @onready var sprite: NinePatchRect = %Sprite
 
