@@ -10,8 +10,10 @@ enum State {
 @export var acceleration := 1000.0
 @export var deceleration := 2000.0
 @export var max_speed := 1200.0
-@export var jump_gravity := 1200.0
+@export var jump_speed := 600.0
+@export var air_acceleration := 500.0
 
+var jump_gravity := 1200.0
 var current_state: State = State.GROUND
 var direction_x := 0.0
 
@@ -25,6 +27,8 @@ func _physics_process(delta: float) -> void:
 	match current_state:
 		State.GROUND: 
 			process_ground_state(delta)
+		State.JUMP:
+			process_jump_state(delta)
 
 
 	velocity.y += jump_gravity * delta
@@ -42,14 +46,21 @@ func process_ground_state(delta: float) -> void:
 		_transition_to_state(State.JUMP)
 		
 
+func process_jump_state(delta: float) -> void:
+	if direction_x != 0:
+		velocity.x += air_acceleration * direction_x * delta
+		velocity.x = clampf(velocity.x, -max_speed, max_speed)
+		#sprite flip 
 
 func _transition_to_state(new_state : State) -> void:
-	var previous_state := new_state
+	var previous_state := current_state
 	current_state = new_state
 	
 	#exit previous state
 	match previous_state:
 		pass
 	
-	match new_state :
-		pass
+	match current_state :
+		State.JUMP:
+			velocity.y =  -1.0 * jump_speed
+			#jump animation
