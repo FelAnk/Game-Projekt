@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://2p6g8fr4l6v4"]
+
+[sub_resource type="FontFile" id="FontFile_rwyx4"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[resource]
+Label/fonts/font = SubResource("FontFile_rwyx4")
