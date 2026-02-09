@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 			process_ground_state(delta)
 		State.JUMP:
 			process_jump_state(delta)
-		state.FALL: 
+		State.FALL: 
 			process_fall_state(delta)
 
 	velocity.y += jump_gravity * delta
@@ -56,21 +56,28 @@ func process_ground_state(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("jump"):
 		_transition_to_state(State.JUMP)
-		
-		
+	elif not is_on_floor():
+		_transition_to_state(State.FALL)
 		
 
 func process_jump_state(delta: float) -> void:
 	if direction_x != 0:
 		velocity.x += air_acceleration * direction_x * delta
 		velocity.x = clampf(velocity.x, -max_speed, max_speed)
-		animated_sprite.flip_h = direction_x > 0.0
+		animated_sprite.flip_h = direction_x < 0.0
+		
+	if velocity.y >= 0.0:
+		_transition_to_state(State.FALL)
 
 func process_fall_state(delta: float) -> void:
 	if direction_x != 0.0:
 		velocity.x += air_acceleration * direction_x * delta
 		velocity.x = clampf(velocity.x, -max_speed, max_speed)
-		animated_sprite.flip_h = direction_x > 0.0
+		animated_sprite.flip_h = direction_x < 0.0
+	
+	
+	if is_on_floor():
+		_transition_to_state(State.GROUND)
 
 
 func _transition_to_state(new_state : State) -> void:
@@ -81,7 +88,10 @@ func _transition_to_state(new_state : State) -> void:
 	match previous_state:
 		pass
 	
-	match current_state :
+	match current_state:
 		State.JUMP:
 			velocity.y =  -1.0 * jump_speed
 			#jump animation
+		State.FALL: 
+			pass
+			#fall animation
