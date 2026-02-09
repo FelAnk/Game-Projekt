@@ -1,16 +1,16 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1770641961
+::res://::1770642339
 ground_platform.png::CompressedTexture2D/CompressedTexture2D::1279176767074612049::1768814527::1768814527::1::::<><><>0<>0<>542b3aa16b86803e2838391109972e41<>res://.godot/imported/ground_platform.png-ddbab2ac008246987f72f1d33f27d1c0.ctex::
 icon.svg::CompressedTexture2D/CompressedTexture2D::2790878262804397063::1768204079::1768210572::1::::<><><>0<>0<>9e417a74eff28d617c70c243b3f48471<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-level.tscn::PackedScene::2209957001594844776::1770627856::0::1::::<><><>0<>0<><>::uid://cqgro1wepw0em::::res://player.tscn<>uid://c2vxmf5sgb2hj::::res://placeholder platform,m.webp
-node_2d.tscn::PackedScene::513837472255302140::1768210427::0::1::::<><><>0<>0<><>::uid://cqgro1wepw0em::::res://player.tscn
+level.tscn::PackedScene::2209957001594844776::1770642100::0::1::::<><><>0<>0<><>::uid://cqgro1wepw0em::::res://player.tscn<>uid://c2vxmf5sgb2hj::::res://placeholder platform,m.webp
+node_2d.tscn::PackedScene/PackedScene::513837472255302140::1768210427::0::1::::<><><>0<>0<><>::uid://cqgro1wepw0em::::res://player.tscn
 placeholder platform,m.webp::CompressedTexture2D/CompressedTexture2D::6712710308595628811::1768812179::1768812179::1::::<><><>0<>0<>6a57a908cb9ccc70a7f3eda5a61d4cf8<>res://.godot/imported/placeholder platform,m.webp-81c4709640dfd95f30db7c07bb05771c.ctex::
 placeholderrrr.webp::CompressedTexture2D/CompressedTexture2D::2993161663543556257::1768207874::1768210572::1::::<><><>0<>0<>adb0f1926ebd930d4b058c64fc2759bb<>res://.godot/imported/placeholderrrr.webp-ce1bca5bacefd50d314cc4a068a4a0e9.ctex::
-platform(for now).tscn::PackedScene::8440377763806208806::1770121572::0::1::::<><><>0<>0<><>::uid://do4kswhi8cjbw::::res://platform(for_now).gd
-platform(for_now).gd::GDScript::8202413297832448444::1769419044::0::1::::Platform<>AnimatableBody2D<><>0<>1<><>::
-player.gd::GDScript::1125558961427169889::1770627855::0::1::::<>CharacterBody2D<><>0<>0<><>::
-player.tscn::PackedScene::5909307721906258712::1770641938::0::1::::<><><>0<>0<><>::uid://qbh16e7mqy7b::::res://player.gd<>uid://blfgd6qxny4ym::::res://Zach Running/Layer 1_sprite_1.png<>uid://dkvj5jhdsddtg::::res://Zach Stand/Zach jumo/Layer 1_sprite_3.png<>uid://dtl7cft0834e7::::res://Zach Running/Layer 1_sprite_2.png<>uid://dxk80c0r43q25::::res://Zach Running/Layer 1_sprite_3.png<>uid://bo8qfxnp0ff4p::::res://Zach Running/Layer 1_sprite_4.png<>uid://bidp673cdl2ul::::res://Zach Running/Layer 1_sprite_5.png<>uid://whs2c040eq8q::::res://Zach Stand/Layer 1_sprite_1.png<>uid://daik4xu36wl6d::::res://Zach Stand/Layer 1_sprite_2.png<>uid://chqccrjhl6fel::::res://Zach Stand/Layer 1_sprite_3.png
-test.tres::Theme::1927959127883162475::1770125487::0::1::::<><><>0<>0<><>::
+platform(for now).tscn::PackedScene/PackedScene::8440377763806208806::1770121572::0::1::::<><><>0<>0<><>::uid://do4kswhi8cjbw::::res://platform(for_now).gd
+platform(for_now).gd::GDScript/GDScript::8202413297832448444::1769419044::0::1::::Platform<>AnimatableBody2D<><>0<>1<><>::
+player.gd::GDScript::1125558961427169889::1770642060::0::1::::<>CharacterBody2D<><>0<>0<><>::
+player.tscn::PackedScene::5909307721906258712::1770642320::0::1::::<><><>0<>0<><>::uid://qbh16e7mqy7b::::res://player.gd<>uid://blfgd6qxny4ym::::res://Zach Running/Layer 1_sprite_1.png<>uid://dkvj5jhdsddtg::::res://Zach Stand/Zach jumo/Layer 1_sprite_3.png<>uid://dtl7cft0834e7::::res://Zach Running/Layer 1_sprite_2.png<>uid://dxk80c0r43q25::::res://Zach Running/Layer 1_sprite_3.png<>uid://bo8qfxnp0ff4p::::res://Zach Running/Layer 1_sprite_4.png<>uid://bidp673cdl2ul::::res://Zach Running/Layer 1_sprite_5.png<>uid://whs2c040eq8q::::res://Zach Stand/Layer 1_sprite_1.png<>uid://daik4xu36wl6d::::res://Zach Stand/Layer 1_sprite_2.png<>uid://chqccrjhl6fel::::res://Zach Stand/Layer 1_sprite_3.png
+test.tres::Theme/Theme::1927959127883162475::1770125487::0::1::::<><><>0<>0<><>::
 yellow_platform.png::CompressedTexture2D/CompressedTexture2D::8496704603787956118::1768814542::1768814542::1::::<><><>0<>0<>a1b476dbb56879c26c4ab5ad12e12cb2<>res://.godot/imported/yellow_platform.png-55c65a8926e658d79e48a8848bae3a72.ctex::
 ZAQ stand sprite.webp::CompressedTexture2D/CompressedTexture2D::1069419489852974911::1770130230::1770130230::1::::<><><>0<>0<>c7c4ff778b82cd8ab195cdd3aefc2590<>res://.godot/imported/ZAQ stand sprite.webp-c73f9f6fba10a13f18472f8f9907f319.ctex::
 ::res://Zach Running/::1770625372

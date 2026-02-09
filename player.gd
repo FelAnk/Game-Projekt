@@ -93,5 +93,4 @@ func _transition_to_state(new_state : State) -> void:
 			velocity.y =  -1.0 * jump_speed
 			animated_sprite.play("Jump")
 		State.FALL: 
-			pass
-			#fall animation
+			animated_sprite.play("Falling")
