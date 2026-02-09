@@ -31,6 +31,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("8_pbfsw")
+}, {
+"duration": 1.0,
 "texture": ExtResource("3_606se")
 }, {
 "duration": 1.0,
@@ -44,9 +47,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_pylmc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_pbfsw")
 }],
 "loop": true,
 "name": &"Jump",
@@ -147,5 +147,5 @@ visibility_layer = 2
 position = Vector2(-104, 121)
 scale = Vector2(0.251812, 0.283967)
 sprite_frames = SubResource("SpriteFrames_nvl01")
-animation = &"Stand"
-frame_progress = 0.7071047
+animation = &"Jump"
+frame_progress = 0.9995669
