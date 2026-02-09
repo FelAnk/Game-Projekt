@@ -129,4 +129,4 @@ position = Vector2(-114, 122)
 scale = Vector2(0.251812, 0.283967)
 sprite_frames = SubResource("SpriteFrames_nvl01")
 animation = &"Jump"
-frame_progress = 0.43963444
+frame_progress = 0.439634
