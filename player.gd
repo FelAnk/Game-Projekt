@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 			process_ground_state(delta)
 		State.JUMP:
 			process_jump_state(delta)
-		state.FALL: 
+		#state.FALL: 
 			process_fall_state(delta)
 
 	velocity.y += jump_gravity * delta

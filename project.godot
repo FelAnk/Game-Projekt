@@ -12,7 +12,7 @@ config_version=5
 
 config/name="cool game"
 run/main_scene="uid://6qrw0j6jk5sm"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [input]
