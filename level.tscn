@@ -29,8 +29,3 @@ shape = SubResource("RectangleShape2D_vonw3")
 
 [node name="Player" parent="." instance=ExtResource("1_u52ul")]
 position = Vector2(173, 145)
-acceleration = null
-deceleration = null
-max_speed = null
-jump_speed = null
-air_acceleration = null
