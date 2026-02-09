@@ -1,18 +1,29 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqgro1wepw0em"]
+[gd_scene load_steps=13 format=3 uid="uid://cqgro1wepw0em"]
 
 [ext_resource type="Script" uid="uid://qbh16e7mqy7b" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://blfgd6qxny4ym" path="res://Zach Running/Layer 1_sprite_1.png" id="2_2hs0m"]
-[ext_resource type="Texture2D" uid="uid://pibghi7np31t" path="res://ZAQ stand sprite.webp" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://dkvj5jhdsddtg" path="res://Zach Stand/Zach jumo/Layer 1_sprite_3.png" id="2_n7ghd"]
 [ext_resource type="Texture2D" uid="uid://dtl7cft0834e7" path="res://Zach Running/Layer 1_sprite_2.png" id="3_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://dxk80c0r43q25" path="res://Zach Running/Layer 1_sprite_3.png" id="4_dw050"]
 [ext_resource type="Texture2D" uid="uid://bo8qfxnp0ff4p" path="res://Zach Running/Layer 1_sprite_4.png" id="5_b26j0"]
 [ext_resource type="Texture2D" uid="uid://bidp673cdl2ul" path="res://Zach Running/Layer 1_sprite_5.png" id="6_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://whs2c040eq8q" path="res://Zach Stand/Layer 1_sprite_1.png" id="7_b26j0"]
+[ext_resource type="Texture2D" uid="uid://daik4xu36wl6d" path="res://Zach Stand/Layer 1_sprite_2.png" id="8_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://chqccrjhl6fel" path="res://Zach Stand/Layer 1_sprite_3.png" id="9_nvl01"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(70, 146)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nvl01"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n7ghd")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_2hs0m")
@@ -35,11 +46,71 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_onrkg")
+"texture": ExtResource("7_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_n7ghd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_n7ghd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_n7ghd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nvl01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b26j0")
 }],
 "loop": true,
 "name": &"Stand",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
@@ -54,8 +125,8 @@ shape = SubResource("RectangleShape2D_onrkg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 visibility_layer = 2
-position = Vector2(-101, 119)
+position = Vector2(-114, 122)
 scale = Vector2(0.251812, 0.283967)
 sprite_frames = SubResource("SpriteFrames_nvl01")
-animation = &"Run"
-frame_progress = 0.00159699
+animation = &"Jump"
+frame_progress = 0.43963444
