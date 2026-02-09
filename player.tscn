@@ -18,6 +18,14 @@ size = Vector2(70, 146)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("5_b26j0")
+}],
+"loop": true,
+"name": &"Falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_n7ghd")
 }],
 "loop": true,
@@ -125,8 +133,7 @@ shape = SubResource("RectangleShape2D_onrkg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 visibility_layer = 2
-position = Vector2(-114, 122)
+position = Vector2(-98, 121)
 scale = Vector2(0.251812, 0.283967)
 sprite_frames = SubResource("SpriteFrames_nvl01")
-animation = &"Jump"
-frame_progress = 0.43963444
+animation = &"Falling"
