@@ -7,11 +7,11 @@ enum State {
 	}
 
 
-@export var acceleration := 2000.0
+@export var acceleration := 1000.0
 @export var deceleration := 2500.0
 @export var max_speed := 1000.0
 @export var jump_speed := 600.0
-@export var air_acceleration := 300.0
+@export var air_acceleration := 600.0
 
 var jump_gravity := 1200.0
 var current_state: State = State.GROUND
