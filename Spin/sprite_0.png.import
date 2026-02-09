@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkvj5jhdsddtg"
-path="res://.godot/imported/Layer 1_sprite_3.png-b679a98ac978727b1396cd28a01a877d.ctex"
+uid="uid://ggoi32ykhfe8"
+path="res://.godot/imported/sprite_0.png-033cc559fe957583e6c0a1b8720e937b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Zach Stand/Zach jumo/Layer 1_sprite_3.png"
-dest_files=["res://.godot/imported/Layer 1_sprite_3.png-b679a98ac978727b1396cd28a01a877d.ctex"]
+source_file="res://Spin/sprite_0.png"
+dest_files=["res://.godot/imported/sprite_0.png-033cc559fe957583e6c0a1b8720e937b.ctex"]
 
 [params]
 
