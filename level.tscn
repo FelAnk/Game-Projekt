@@ -12,6 +12,7 @@ size = Vector2(20, 121)
 [node name="Level" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 position = Vector2(455.75, 371)
@@ -27,4 +28,4 @@ position = Vector2(-13, 313)
 shape = SubResource("RectangleShape2D_vonw3")
 
 [node name="Player" parent="." instance=ExtResource("1_u52ul")]
-position = Vector2(173, 142)
+position = Vector2(173, 145)
