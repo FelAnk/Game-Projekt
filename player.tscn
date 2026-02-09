@@ -31,7 +31,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Run",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -52,8 +52,10 @@ position = Vector2(-101, 124)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 visibility_layer = 2
 position = Vector2(-101, 119)
-scale = Vector2(0.25181162, 0.2839674)
+scale = Vector2(0.251812, 0.283967)
 sprite_frames = SubResource("SpriteFrames_nvl01")
-animation = &"Stand"
+animation = &"Run"
+frame_progress = 0.00159699
