@@ -18,6 +18,14 @@ size = Vector2(70, 146)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_2hs0m")
+}],
+"loop": true,
+"name": &"Falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_n7ghd")
 }],
 "loop": true,
@@ -128,5 +136,4 @@ visibility_layer = 2
 position = Vector2(-114, 122)
 scale = Vector2(0.251812, 0.283967)
 sprite_frames = SubResource("SpriteFrames_nvl01")
-animation = &"Jump"
-frame_progress = 0.439634
+animation = &"Falling"
