@@ -9,13 +9,13 @@ enum State {
 @export_category("Jump")
 @export_range(10.0, 200.0) var jump_height := 50.0
 @export_range(0.1, 1.5) var jump_time_to_peak := 0.35
-
+@export_range(0.1, 1.5) var jump_time_to_decent := 0.2
 
 @export var acceleration := 1000.0
 @export var deceleration := 2500.0
 @export var max_speed := 1000.0
 @export var air_acceleration := 900.0
-@export var max_fall_speed:= 1000.0
+@export var max_fall_speed:= 250.0
 
 
 var current_state: State = State.GROUND
@@ -25,8 +25,8 @@ var current_gravity := 0.0
 @onready var animated_sprite: AnimatedSprite2D = %AnimatedSprite2D
 
 @onready var jump_speed := calculate_jump_speed(jump_height, jump_time_to_peak)
-@onready var jump_gravity := calcultate_jump_gravity(jump_height, jump_time_to_peak)
-
+@onready var jump_gravity := calculate_jump_gravity(jump_height, jump_time_to_peak)
+@onready var fall_gravity := calculate_fall_gravity(jump_height, jump_time_to_decent)
 
 func _ready() -> void:
 	_transition_to_state(current_state)
@@ -48,6 +48,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func process_ground_state(delta: float) -> void:
+	print("ground")
 	var is_moving := absf(direction_x) > 0.0
 	if is_moving: 
 		velocity.x += direction_x * acceleration * delta
@@ -64,6 +65,7 @@ func process_ground_state(delta: float) -> void:
 	
 	
 	if Input.is_action_just_pressed("jump"):
+		print("jump")
 		_transition_to_state(State.JUMP)
 	elif not is_on_floor():
 		_transition_to_state(State.FALL)
@@ -79,6 +81,7 @@ func process_jump_state(delta: float) -> void:
 		_transition_to_state(State.FALL)
 
 func process_fall_state(delta: float) -> void:
+	print("falling")
 	if direction_x != 0.0:
 		velocity.x += air_acceleration * direction_x * delta
 		velocity.x = clampf(velocity.x, -max_speed, max_speed)
@@ -102,6 +105,7 @@ func _transition_to_state(new_state : State) -> void:
 			velocity.y = jump_speed
 			current_gravity = jump_gravity
 			animated_sprite.play("Jump")
+		
 		State.FALL: 
 			animated_sprite.play("Falling")
 

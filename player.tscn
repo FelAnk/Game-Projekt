@@ -147,5 +147,5 @@ visibility_layer = 2
 position = Vector2(-104, 121)
 scale = Vector2(0.251812, 0.283967)
 sprite_frames = SubResource("SpriteFrames_nvl01")
-animation = &"Jump"
-frame_progress = 0.999567
+animation = &"Run"
+frame_progress = 0.551143
