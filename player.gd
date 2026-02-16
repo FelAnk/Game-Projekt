@@ -6,18 +6,26 @@ enum State {
 	FALL,
 	}
 
+@export_category("Jump")
+@export_range(10.0, 200.0) var jump_height := 50.0
+@export_range(0.1, 1.5) var jump_time_to_peak := 0.35
+
 
 @export var acceleration := 1000.0
 @export var deceleration := 2500.0
 @export var max_speed := 1000.0
-@export var jump_speed := 600.0
 @export var air_acceleration := 900.0
+@export var max_fall_speed:= 1000.0
 
-var jump_gravity := 1200.0
+
 var current_state: State = State.GROUND
 var direction_x := 0.0
+var current_gravity := 0.0
 
 @onready var animated_sprite: AnimatedSprite2D = %AnimatedSprite2D
+
+@onready var jump_speed := calculate_jump_speed(jump_height, jump_time_to_peak)
+@onready var jump_gravity := calcultate_jump_gravity(jump_height, jump_time_to_peak)
 
 
 func _ready() -> void:
@@ -35,7 +43,8 @@ func _physics_process(delta: float) -> void:
 		State.FALL: 
 			process_fall_state(delta)
 
-	velocity.y += jump_gravity * delta
+	velocity.y += current_gravity * delta
+	velocity.y = minf(velocity.y, max_fall_speed)
 	move_and_slide()
 
 func process_ground_state(delta: float) -> void:
@@ -90,7 +99,14 @@ func _transition_to_state(new_state : State) -> void:
 	
 	match current_state:
 		State.JUMP:
-			velocity.y =  -1.0 * jump_speed
+			velocity.y = jump_speed
+			current_gravity = jump_gravity
 			animated_sprite.play("Jump")
 		State.FALL: 
 			animated_sprite.play("Falling")
+
+func calculate_jump_speed(height:float, time_to_peak:float) -> float:
+	return (-2.0 * height) / time_to_peak
+
+func calcultate_jump_gravity(height:float, time_to_peak:float) -> float: 
+	return  (2.0 * height) / pow(time_to_peak, 2.0)
