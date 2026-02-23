@@ -10,6 +10,9 @@ enum State {
 @export_range(10.0, 600.0) var jump_height := 250.0
 @export_range(0.1, 2.5) var jump_time_to_peak := 0.55
 @export_range(0.1, 1.5) var jump_time_to_decent := 0.5
+@export_range(50.0, 2000.0) var jump_horizontal_distance := 500.0
+@export_range(5.0, 500.0)var jump_cut_divider:= 150.0
+
 
 @export var acceleration := 1000.0
 @export var deceleration := 2200.0
@@ -27,6 +30,7 @@ var current_gravity := 0.0
 @onready var jump_speed := calculate_jump_speed(jump_height, jump_time_to_peak)
 @onready var jump_gravity := calcultate_jump_gravity(jump_height, jump_time_to_peak)
 @onready var fall_gravity := calculate_fall_gravity(jump_height, jump_time_to_decent)
+@onready var jump_horizontal_speed := calculate_jump_horizontal_speed(jump_horizontal_distance, jump_time_to_peak, jump_time_to_decent)
 
 func _ready() -> void:
 	_transition_to_state(current_state)
@@ -72,16 +76,21 @@ func process_ground_state(delta: float) -> void:
 func process_jump_state(delta: float) -> void:
 	if direction_x != 0:
 		velocity.x += air_acceleration * direction_x * delta
-		velocity.x = clampf(velocity.x, -max_speed, max_speed)
+		velocity.x = clampf(velocity.x, -jump_horizontal_speed, jump_horizontal_speed)
 		animated_sprite.flip_h = direction_x < 0.0
-		
+	
+	if Input.is_action_just_pressed("jump"):
+		var jump_cut_speed := jump_speed / jump_cut_divider
+		if velocity.y < 0.0 and velocity.y < jump_cut_speed:
+			velocity.y = jump_cut_speed
+	
 	if velocity.y >= 0.0:
 		_transition_to_state(State.FALL)
 
 func process_fall_state(delta: float) -> void:
 	if direction_x != 0.0:
 		velocity.x += air_acceleration * direction_x * delta
-		velocity.x = clampf(velocity.x, -max_speed, max_speed)
+		velocity.x = clampf(velocity.x, -jump_horizontal_speed, jump_horizontal_speed)
 		animated_sprite.flip_h = direction_x < 0.0
 	
 	
@@ -101,11 +110,15 @@ func _transition_to_state(new_state : State) -> void:
 		State.JUMP:
 			velocity.y = jump_speed
 			current_gravity = jump_gravity
+			velocity.x = direction_x * jump_horizontal_speed
 			animated_sprite.play("Jump")
 		
 		State.FALL: 
 			current_gravity = fall_gravity
 			animated_sprite.play("Falling")
+
+func calculate_jump_horizontal_speed(distance: float, time_to_peak: float, time_to_decent: float) -> float:
+	return distance / (time_to_peak + time_to_decent)
 
 func calculate_jump_speed(height:float, time_to_peak:float) -> float:
 	return (-2.0 * height) / time_to_peak
