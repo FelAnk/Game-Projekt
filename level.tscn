@@ -9,7 +9,7 @@ size = Vector2(952, 28)
 [node name="Level" type="Node2D"]
 
 [node name="platform 1" type="StaticBody2D" parent="."]
-position = Vector2(708, 102)
+position = Vector2(705, -26)
 scale = Vector2(0.381743, 1.02378)
 collision_layer = 2
 
@@ -22,7 +22,22 @@ texture = ExtResource("2_vonw3")
 position = Vector2(458, 378)
 shape = SubResource("RectangleShape2D_oi3di")
 
+[node name="platform 3" type="StaticBody2D" parent="."]
+position = Vector2(253, 91)
+scale = Vector2(0.137418, 1.05263)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="platform 3"]
+position = Vector2(455.75, 371)
+scale = Vector2(1.16159, 0.205607)
+texture = ExtResource("2_vonw3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform 3"]
+position = Vector2(458, 378)
+shape = SubResource("RectangleShape2D_oi3di")
+
 [node name="platform 2" type="StaticBody2D" parent="."]
+position = Vector2(-3, -128)
 scale = Vector2(0.518879, 0.922914)
 collision_layer = 2
 
@@ -36,11 +51,4 @@ position = Vector2(458, 378)
 shape = SubResource("RectangleShape2D_oi3di")
 
 [node name="Player" parent="." instance=ExtResource("1_u52ul")]
-position = Vector2(170, 115)
-jump_height = null
-jump_time_to_peak = null
-acceleration = null
-deceleration = null
-max_speed = null
-air_acceleration = null
-max_fall_speed = null
+position = Vector2(157, 17)
