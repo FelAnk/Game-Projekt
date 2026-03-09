@@ -70,7 +70,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Run",
-"speed": 7.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -148,4 +148,4 @@ position = Vector2(-104, 121)
 scale = Vector2(0.251812, 0.283967)
 sprite_frames = SubResource("SpriteFrames_nvl01")
 animation = &"Run"
-frame_progress = 0.551143
+frame_progress = 0.514054

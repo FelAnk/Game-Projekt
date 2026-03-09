@@ -8,15 +8,15 @@ enum State {
 
 @export_category("Jump")
 @export_range(10.0, 600.0) var jump_height := 250.0
-@export_range(0.1, 2.5) var jump_time_to_peak := 0.55
-@export_range(0.1, 1.5) var jump_time_to_decent := 0.5
-@export_range(50.0, 2000.0) var jump_horizontal_distance := 500.0
+@export_range(0.1, 2.5) var jump_time_to_peak := 0.50
+@export_range(0.1, 1.5) var jump_time_to_decent := 0.15
+@export_range(50.0, 2000.0) var jump_horizontal_distance := 300.0
 @export_range(5.0, 500.0)var jump_cut_divider:= 150.0
 
 
-@export var acceleration := 1000.0
-@export var deceleration := 2200.0
-@export var max_speed := 1000.0
+@export var acceleration := 10000.0
+@export var deceleration := 2800.0
+@export var max_speed := 500.0
 @export var air_acceleration := 900.0
 @export var max_fall_speed:= 500.0
 
@@ -26,7 +26,7 @@ var direction_x := 0.0
 var current_gravity := 0.0
 
 @onready var animated_sprite: AnimatedSprite2D = %AnimatedSprite2D
-
+@onready var cayote_timer := Timer.new()
 @onready var jump_speed := calculate_jump_speed(jump_height, jump_time_to_peak)
 @onready var jump_gravity := calcultate_jump_gravity(jump_height, jump_time_to_peak)
 @onready var fall_gravity := calculate_fall_gravity(jump_height, jump_time_to_decent)
@@ -34,6 +34,9 @@ var current_gravity := 0.0
 
 func _ready() -> void:
 	_transition_to_state(current_state)
+	cayote_timer.wait_time = 0.2
+	cayote_timer.one_shot = true
+	add_child(cayote_timer)
 
 func _physics_process(delta: float) -> void:
 	
@@ -93,7 +96,6 @@ func process_fall_state(delta: float) -> void:
 		velocity.x = clampf(velocity.x, -jump_horizontal_speed, jump_horizontal_speed)
 		animated_sprite.flip_h = direction_x < 0.0
 	
-	
 	if is_on_floor():
 		_transition_to_state(State.GROUND)
 
@@ -104,7 +106,8 @@ func _transition_to_state(new_state : State) -> void:
 	
 	#exit previous state
 	match previous_state:
-		pass
+		State.FALL: 
+			cayote_timer.stop()
 	
 	match current_state:
 		State.JUMP:
@@ -113,9 +116,12 @@ func _transition_to_state(new_state : State) -> void:
 			velocity.x = direction_x * jump_horizontal_speed
 			animated_sprite.play("Jump")
 		
-		State.FALL: 
+		State.FALL:
+			animated_sprite.play("Falling") 
 			current_gravity = fall_gravity
-			animated_sprite.play("Falling")
+			
+			if previous_state == State.GROUND:
+				cayote_timer.start()
 
 func calculate_jump_horizontal_speed(distance: float, time_to_peak: float, time_to_decent: float) -> float:
 	return distance / (time_to_peak + time_to_decent)
