@@ -1,12 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://6qrw0j6jk5sm"]
+[gd_scene load_steps=6 format=3 uid="uid://6qrw0j6jk5sm"]
 
-[ext_resource type="PackedScene" uid="uid://cqgro1wepw0em" path="res://player.tscn" id="1_u52ul"]
-[ext_resource type="Texture2D" uid="uid://c2vxmf5sgb2hj" path="res://placeholder platform,m.webp" id="2_vonw3"]
+[ext_resource type="Script" uid="uid://gk8e5k4jw0g6" path="res://level.gd" id="1_oi3di"]
+[ext_resource type="PackedScene" uid="uid://cqgro1wepw0em" path="res://Player/player.tscn" id="1_u52ul"]
+[ext_resource type="Texture2D" uid="uid://c2vxmf5sgb2hj" path="res://tests + placeholders/placeholder platform,m.webp" id="2_vonw3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oi3di"]
 size = Vector2(952, 28)
 
+[sub_resource type="Curve2D" id="Curve2D_vonw3"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 9, 81, 0, 0, 0, 0, 1020, 231, 0, 0, 0, 0, 2180, 217)
+}
+point_count = 3
+
 [node name="Level" type="Node2D"]
+script = ExtResource("1_oi3di")
 
 [node name="platform 1" type="StaticBody2D" parent="."]
 position = Vector2(705, -26)
@@ -19,6 +28,20 @@ scale = Vector2(1.16159, 0.205607)
 texture = ExtResource("2_vonw3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform 1"]
+position = Vector2(458, 378)
+shape = SubResource("RectangleShape2D_oi3di")
+
+[node name="platform 5" type="StaticBody2D" parent="."]
+position = Vector2(46, 307)
+scale = Vector2(2.57527, 0.874064)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="platform 5"]
+position = Vector2(455.75, 371)
+scale = Vector2(1.16159, 0.205607)
+texture = ExtResource("2_vonw3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform 5"]
 position = Vector2(458, 378)
 shape = SubResource("RectangleShape2D_oi3di")
 
@@ -69,5 +92,14 @@ debug_color = Color(0.651665, 0.455885, 0.660767, 0.42)
 [node name="Player" parent="." instance=ExtResource("1_u52ul")]
 position = Vector2(156, 12)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(175, 155)
+[node name="CameraPath" type="Path2D" parent="."]
+position = Vector2(36, 31)
+curve = SubResource("Curve2D_vonw3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="CameraPath"]
+position = Vector2(9, 81)
+rotation = 0.147293
+
+[node name="Camera2D" type="Camera2D" parent="CameraPath/PathFollow2D"]
+position = Vector2(342, 169)
+limit_bottom = 1000
