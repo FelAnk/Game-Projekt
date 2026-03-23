@@ -4,6 +4,7 @@ enum State {
 	GROUND, 
 	JUMP, 
 	FALL,
+	DEATH
 	}
 
 @export_category("Jump")
@@ -49,6 +50,8 @@ func _physics_process(delta: float) -> void:
 			process_jump_state(delta)
 		State.FALL: 
 			process_fall_state(delta)
+		State.DEATH:
+			process_death_state(delta)
 
 	velocity.y += current_gravity * delta
 	velocity.y = minf(velocity.y, max_fall_speed)
@@ -98,6 +101,9 @@ func process_fall_state(delta: float) -> void:
 	
 	if is_on_floor():
 		_transition_to_state(State.GROUND)
+
+func process_death_state(delta: float) -> void:
+	pass
 
 
 func _transition_to_state(new_state : State) -> void:

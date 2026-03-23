@@ -1,3 +1,4 @@
-res://player.tscn
+res://Player/player.tscn
 res://level.tscn
 res://level.gd
+res://Player/player.gd
