@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://6qrw0j6jk5sm"]
+[gd_scene load_steps=8 format=3 uid="uid://6qrw0j6jk5sm"]
 
 [ext_resource type="Script" uid="uid://gk8e5k4jw0g6" path="res://level.gd" id="1_oi3di"]
 [ext_resource type="PackedScene" uid="uid://cqgro1wepw0em" path="res://Player/player.tscn" id="1_u52ul"]
 [ext_resource type="Texture2D" uid="uid://c2vxmf5sgb2hj" path="res://tests + placeholders/placeholder platform,m.webp" id="2_vonw3"]
+[ext_resource type="Texture2D" uid="uid://bjv0twa7d8n0g" path="res://tests + placeholders/wallofdeath.jpeg" id="4_0b4ue"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oi3di"]
 size = Vector2(952, 28)
@@ -13,6 +14,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 7, 73, 0, 0, 0, 0, 746, 112, 0, 0, 0, 0, 1518, 145, 0, 0, 0, 0, 2182, 181)
 }
 point_count = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b4ue"]
+size = Vector2(209, 751)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_oi3di")
@@ -91,6 +95,7 @@ debug_color = Color(0.651665, 0.455885, 0.660767, 0.42)
 
 [node name="Player" parent="." instance=ExtResource("1_u52ul")]
 position = Vector2(156, 12)
+collision_mask = 6
 
 [node name="CameraPath" type="Path2D" parent="."]
 unique_name_in_owner = true
@@ -105,3 +110,19 @@ rotation = 0.0527251
 [node name="Camera2D" type="Camera2D" parent="CameraPath/PathFollow2D"]
 position = Vector2(342, 169)
 limit_bottom = 1000
+
+[node name="Deathwall" type="Area2D" parent="CameraPath/PathFollow2D"]
+unique_name_in_owner = true
+position = Vector2(-42.2741, -117.936)
+rotation = -0.0527251
+collision_layer = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="CameraPath/PathFollow2D/Deathwall"]
+position = Vector2(-192.5, 317.75)
+scale = Vector2(0.377558, 3.15272)
+texture = ExtResource("4_0b4ue")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraPath/PathFollow2D/Deathwall"]
+position = Vector2(-193.5, 319.5)
+scale = Vector2(0.377558, 1)
+shape = SubResource("RectangleShape2D_0b4ue")

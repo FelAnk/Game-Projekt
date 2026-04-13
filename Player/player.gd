@@ -26,6 +26,8 @@ var current_state: State = State.GROUND
 var direction_x := 0.0
 var current_gravity := 0.0
 
+
+@onready var deathwall: Area2D = %Deathwall
 @onready var animated_sprite: AnimatedSprite2D = %AnimatedSprite2D
 @onready var cayote_timer := Timer.new()
 @onready var jump_speed := calculate_jump_speed(jump_height, jump_time_to_peak)
@@ -38,6 +40,12 @@ func _ready() -> void:
 	cayote_timer.wait_time = 0.2
 	cayote_timer.one_shot = true
 	add_child(cayote_timer)
+	
+	deathwall.body_entered.connect(death)
+	
+func death(body) -> void:
+	_transition_to_state(State.DEATH)
+
 
 func _physics_process(delta: float) -> void:
 	
@@ -77,7 +85,8 @@ func process_ground_state(delta: float) -> void:
 		_transition_to_state(State.JUMP)
 	elif not is_on_floor():
 		_transition_to_state(State.FALL)
-		
+	
+	
 
 func process_jump_state(delta: float) -> void:
 	if direction_x != 0:
@@ -103,7 +112,7 @@ func process_fall_state(delta: float) -> void:
 		_transition_to_state(State.GROUND)
 
 func process_death_state(delta: float) -> void:
-	pass
+	print("Death")
 
 
 func _transition_to_state(new_state : State) -> void:
