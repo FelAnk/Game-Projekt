@@ -10,7 +10,7 @@ size = Vector2(952, 28)
 [sub_resource type="Curve2D" id="Curve2D_vonw3"]
 bake_interval = 0.01
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 7, 73, 0, 0, 0, 0, 746, 112, 0, 0, 0, 0, 1512, 138, 0, 0, 0, 0, 2182, 181)
+"points": PackedVector2Array(0, 0, 0, 0, 7, 73, 0, 0, 0, 0, 746, 112, 0, 0, 0, 0, 1518, 145, 0, 0, 0, 0, 2182, 181)
 }
 point_count = 4
 
