@@ -112,7 +112,7 @@ func process_fall_state(delta: float) -> void:
 		_transition_to_state(State.GROUND)
 
 func process_death_state(delta: float) -> void:
-	print("Death")
+	get_tree().change_scene_to_file("res://game_over.tscn")
 
 
 func _transition_to_state(new_state : State) -> void:

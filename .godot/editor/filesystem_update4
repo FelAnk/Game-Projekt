@@ -1,2 +1,5 @@
-res://Player/player.tscn
 res://level.tscn
+res://Player/player.tscn
+res://ui.tscn
+res://Player/player.gd
+res://game_over.tscn

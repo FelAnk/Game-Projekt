@@ -11,9 +11,9 @@ size = Vector2(952, 28)
 [sub_resource type="Curve2D" id="Curve2D_vonw3"]
 bake_interval = 0.01
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 7, 73, 0, 0, 0, 0, 746, 112, 0, 0, 0, 0, 1518, 145, 0, 0, 0, 0, 2182, 181)
+"points": PackedVector2Array(0, 0, 0, 0, 98, 79, 0, 0, 0, 0, 746, 112, 0, 0, 0, 0, 1518, 145, 0, 0, 0, 0, 2231.83, 195.08, 0, 0, 0, 0, 2970, 249)
 }
-point_count = 4
+point_count = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0b4ue"]
 size = Vector2(209, 751)
@@ -99,13 +99,13 @@ collision_mask = 6
 
 [node name="CameraPath" type="Path2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(36, 31)
+position = Vector2(21, 30)
 curve = SubResource("Curve2D_vonw3")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="CameraPath"]
 unique_name_in_owner = true
-position = Vector2(7, 73)
-rotation = 0.0527251
+position = Vector2(98, 79)
+rotation = 0.050882
 
 [node name="Camera2D" type="Camera2D" parent="CameraPath/PathFollow2D"]
 position = Vector2(342, 169)
@@ -113,7 +113,7 @@ limit_bottom = 1000
 
 [node name="Deathwall" type="Area2D" parent="CameraPath/PathFollow2D"]
 unique_name_in_owner = true
-position = Vector2(-42.2741, -117.936)
+position = Vector2(-146.125, -116.719)
 rotation = -0.0527251
 collision_layer = 5
 

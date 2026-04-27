@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp7o6rkv55mt7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xb563"]
+font_size = 50
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 649.0
+color = Color(0, 0, 0, 0.568627)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 429.0
+offset_top = 281.0
+offset_right = 700.0
+offset_bottom = 350.0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_xb563")
