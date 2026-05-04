@@ -1,5 +1,5 @@
-res://level.tscn
 res://Player/player.tscn
-res://ui.tscn
-res://Player/player.gd
+res://level.tscn
 res://game_over.tscn
+res://game_over.gd
+res://Player/player.gd

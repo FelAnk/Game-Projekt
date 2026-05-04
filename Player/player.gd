@@ -43,7 +43,7 @@ func _ready() -> void:
 	
 	deathwall.body_entered.connect(death)
 	
-func death(body) -> void:
+func death(_body) -> void:
 	_transition_to_state(State.DEATH)
 
 
