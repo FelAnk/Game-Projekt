@@ -1,5 +1,8 @@
 res://Player/player.tscn
 res://level.tscn
 res://game_over.tscn
-res://game_over.gd
+res://start.tscn
+res://start.gd
+res://level.gd
+res://pause.tscn
 res://Player/player.gd

@@ -27,6 +27,7 @@ var direction_x := 0.0
 var current_gravity := 0.0
 
 
+@onready var flor: Area2D = %Flor
 @onready var deathwall: Area2D = %Deathwall
 @onready var animated_sprite: AnimatedSprite2D = %AnimatedSprite2D
 @onready var cayote_timer := Timer.new()
@@ -42,6 +43,7 @@ func _ready() -> void:
 	add_child(cayote_timer)
 	
 	deathwall.body_entered.connect(death)
+	flor.body_entered.connect(death)
 	
 func death(_body) -> void:
 	_transition_to_state(State.DEATH)

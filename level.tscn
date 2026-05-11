@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://6qrw0j6jk5sm"]
+[gd_scene load_steps=9 format=3 uid="uid://6qrw0j6jk5sm"]
 
 [ext_resource type="Script" uid="uid://gk8e5k4jw0g6" path="res://level.gd" id="1_oi3di"]
 [ext_resource type="PackedScene" uid="uid://cqgro1wepw0em" path="res://Player/player.tscn" id="1_u52ul"]
 [ext_resource type="Texture2D" uid="uid://c2vxmf5sgb2hj" path="res://tests + placeholders/placeholder platform,m.webp" id="2_vonw3"]
 [ext_resource type="Texture2D" uid="uid://bjv0twa7d8n0g" path="res://tests + placeholders/wallofdeath.jpeg" id="4_0b4ue"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2txt"]
+size = Vector2(11671.5, 49.6544)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oi3di"]
 size = Vector2(952, 28)
@@ -20,6 +23,15 @@ size = Vector2(209, 751)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_oi3di")
+
+[node name="Flor" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(2071.62, 739.234)
+rotation = -0.00184313
+scale = Vector2(0.377558, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flor"]
+shape = SubResource("RectangleShape2D_f2txt")
 
 [node name="platform 1" type="StaticBody2D" parent="."]
 position = Vector2(705, -26)
