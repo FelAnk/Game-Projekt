@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://6qrw0j6jk5sm"]
+[gd_scene load_steps=11 format=3 uid="uid://6qrw0j6jk5sm"]
 
 [ext_resource type="Script" uid="uid://gk8e5k4jw0g6" path="res://level.gd" id="1_oi3di"]
 [ext_resource type="PackedScene" uid="uid://cqgro1wepw0em" path="res://Player/player.tscn" id="1_u52ul"]
 [ext_resource type="Texture2D" uid="uid://c2vxmf5sgb2hj" path="res://tests + placeholders/placeholder platform,m.webp" id="2_vonw3"]
+[ext_resource type="Texture2D" uid="uid://cyoba5qmagg1h" path="res://tests + placeholders/flag.webp" id="3_f2txt"]
 [ext_resource type="Texture2D" uid="uid://bjv0twa7d8n0g" path="res://tests + placeholders/wallofdeath.jpeg" id="4_0b4ue"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2txt"]
@@ -10,6 +11,9 @@ size = Vector2(11671.5, 49.6544)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oi3di"]
 size = Vector2(952, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ainy"]
+size = Vector2(62.0535, 104)
 
 [sub_resource type="Curve2D" id="Curve2D_vonw3"]
 bake_interval = 0.01
@@ -75,6 +79,20 @@ texture = ExtResource("2_vonw3")
 position = Vector2(458, 378)
 shape = SubResource("RectangleShape2D_oi3di")
 
+[node name="platform 6" type="StaticBody2D" parent="."]
+position = Vector2(2668, 238)
+scale = Vector2(0.137418, 1.05518)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="platform 6"]
+position = Vector2(455.75, 371)
+scale = Vector2(1.16159, 0.205607)
+texture = ExtResource("2_vonw3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform 6"]
+position = Vector2(458, 378)
+shape = SubResource("RectangleShape2D_oi3di")
+
 [node name="platform 4" type="StaticBody2D" parent="."]
 position = Vector2(1301, 7)
 scale = Vector2(0.137418, 1.05518)
@@ -104,6 +122,22 @@ position = Vector2(458.681, 381.401)
 shape = SubResource("RectangleShape2D_oi3di")
 one_way_collision = true
 debug_color = Color(0.651665, 0.455885, 0.660767, 0.42)
+
+[node name="WinFlag" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(2731, 545)
+scale = Vector2(0.89512, 0.986075)
+
+[node name="Sprite2D" type="Sprite2D" parent="WinFlag"]
+position = Vector2(-2, 0)
+scale = Vector2(0.0891666, 0.133125)
+texture = ExtResource("3_f2txt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinFlag"]
+position = Vector2(-8.7738e-05, 1.01413)
+rotation = 3.14159
+scale = Vector2(1.05853, -0.533622)
+shape = SubResource("RectangleShape2D_1ainy")
 
 [node name="Player" parent="." instance=ExtResource("1_u52ul")]
 position = Vector2(156, 12)

@@ -4,7 +4,8 @@ enum State {
 	GROUND, 
 	JUMP, 
 	FALL,
-	DEATH
+	DEATH,
+	WIN
 	}
 
 @export_category("Jump")
@@ -26,7 +27,7 @@ var current_state: State = State.GROUND
 var direction_x := 0.0
 var current_gravity := 0.0
 
-
+@onready var win_flag: Area2D = %WinFlag
 @onready var flor: Area2D = %Flor
 @onready var deathwall: Area2D = %Deathwall
 @onready var animated_sprite: AnimatedSprite2D = %AnimatedSprite2D
@@ -44,10 +45,12 @@ func _ready() -> void:
 	
 	deathwall.body_entered.connect(death)
 	flor.body_entered.connect(death)
+	win_flag.body_entered.connect(Win)
 	
 func death(_body) -> void:
 	_transition_to_state(State.DEATH)
-
+func Win(_body) -> void:
+	_transition_to_state(State.WIN)
 
 func _physics_process(delta: float) -> void:
 	
@@ -62,6 +65,8 @@ func _physics_process(delta: float) -> void:
 			process_fall_state(delta)
 		State.DEATH:
 			process_death_state(delta)
+		State.WIN:
+			process_win_state()
 
 	velocity.y += current_gravity * delta
 	velocity.y = minf(velocity.y, max_fall_speed)
@@ -115,6 +120,9 @@ func process_fall_state(delta: float) -> void:
 
 func process_death_state(delta: float) -> void:
 	get_tree().change_scene_to_file("res://game_over.tscn")
+
+func process_win_state():
+	get_tree().change_scene_to_file("res://win_screen.tscn")
 
 
 func _transition_to_state(new_state : State) -> void:
